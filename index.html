@@ -119,7 +119,7 @@
                             <div class="device">
                                 <div class="screen">
                                     <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                                    <img src="img/screen.jpg" class="img-responsive" alt=""> </div>
+                                    <img id="iphone_screen" src="img/screen1.jpg" class="img-responsive" alt=""> </div>
                                 <div class="button">
                                     <!-- You can hook the "home button" to some JavaScript events or just remove it -->
                                 </div>
@@ -210,6 +210,28 @@
             </ul>
         </div>
     </footer>
+
+    <script>
+    'use strict';
+    var screens = ['img/screen1.jpg', 'img/screen2.jpg', 'img/screen3.jpg', 'img/screen4.jpg', 'img/screen5.jpg'];
+    var screenIndex = 0;
+    var screensEnd = screens.length - 1;
+    function changeScreen() {
+      if(screenIndex < screensEnd) {
+        screenIndex ++;
+      } else {
+        screenIndex = 0;
+      }
+      $("#iphone_screen").attr("src", screens[screenIndex]);
+    }
+
+    function loopCall() {
+      changeScreen();
+    }
+
+    var loopSpeed = 3000; //ms
+    setInterval(loopCall, loopSpeed);
+    </script>
 
     <!-- jQuery -->
     <script src="lib/jquery/jquery.min.js"></script>
